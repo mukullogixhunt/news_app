@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="seed">#6750A4</color>
+    <color name="md_theme_light_primary">#6750A4</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#e9ddff</color>
+    <color name="md_theme_light_onPrimaryContainer">#4d3d75</color>
+    <color name="md_theme_light_surface">#fdf7ff</color>
+    <!-- ... many more colors for light theme ... -->
+
+    <color name="md_theme_dark_primary">#D0BCFF</color>
+    <color name="md_theme_dark_onPrimary">#381E72</color>
+    <color name="md_theme_dark_primaryContainer">#4d3d75</color>
+    <color name="md_theme_dark_onPrimaryContainer">#e9ddff</color>
+    <color name="md_theme_dark_surface">#141218</color>
+    <!-- ... many more colors for dark theme ... -->
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

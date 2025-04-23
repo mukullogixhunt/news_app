@@ -45,4 +45,6 @@ interface NewsRepository {
      */
     suspend fun syncHeadlines(country: String, category: String?): Int
 
+    suspend fun getArticle(url: String): Article? // Can return null if not found
+
 }
