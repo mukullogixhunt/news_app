@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">News App</string>
+    <string name="app_name">NewsFlow</string>
+    <string name="menu_headlines">Headlines</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="menu_settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="retry">Retry</string>
+    <string name="content_desc_article_image">Content Description Article Image</string>
+    <string name="article_detail_placeholder">Article Detail Placeholder</string>
+    <string name="search">Search</string>
+    <string name="search_news">Search News…</string>
+    <string name="enter_a_keyword_to_search_news">Enter a keyword to search news</string>
+    <string name="no_bookmarks_yet_save_articles_to_see_them_here">No bookmarks yet. Save articles to see them here.</string>
+    <string name="background_sync_interval">Background Sync Interval</string>
+    <string name="dark">Dark</string>
+    <string name="light">Light</string>
+    <string name="system_default">System Default</string>
+    <string name="app_theme">App Theme</string>
+    <string name="sync_interval_hours">Sync Interval Hours</string>
+    <string name="article_image_backdrop">Article Image Backdrop</string>
+    <string name="error_loading_article">Error loading article</string>
+    <string name="bookmark_article">Bookmark Article</string>
+    <string name="view_full_article_online">View Full Article Online</string>
+    <string name="share">Share</string>
+    <string name="toggle_bookmark">Toggle Bookmark</string>
 </resources>

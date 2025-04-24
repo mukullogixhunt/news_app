@@ -5,13 +5,14 @@ plugins {
     alias(libs.plugins.ksp) // Apply KSP plugin
     alias(libs.plugins.hilt.android) // Apply Hilt plugin
     alias(libs.plugins.androidx.navigation.safeargs) // Apply if needed
-    id("kotlin-kapt")
+//    id("kotlin-kapt")
     alias(libs.plugins.kotlin.compose)
 }
 
 hilt {
     enableAggregatingTask = false
 }
+
 
 android {
     namespace = "com.compose.newsapp"
@@ -25,6 +26,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "NEWS_API_KEY", "\"13663c9a42894c0a98b8cf2f361a1b11\"")
+
+
     }
 
     buildTypes {
@@ -49,8 +54,15 @@ android {
         compose = true
         dataBinding = true
         viewBinding = true
+        buildConfig = true
+
     }
 }
+
+
+
+
+
 
 dependencies {
 
@@ -76,7 +88,8 @@ dependencies {
 
     // Room (Database)
     implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx) // Coroutines support
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.multidex) // Coroutines support
     ksp(libs.androidx.room.compiler) // Use KSP for Room annotation processing
 
     // Retrofit (Networking)
@@ -86,7 +99,11 @@ dependencies {
 
     //Paging
     implementation(libs.androidx.paging.runtime.ktx)
-    implementation("androidx.paging:paging-compose::3.3.6")
+    implementation(libs.androidx.room.paging)
+//    implementation("androidx.paging:paging-compose::3.3.6")
+
+    // DataStore (Preferences)
+    implementation(libs.androidx.datastore.preferences)
 
 
     // Coroutines
@@ -96,6 +113,9 @@ dependencies {
     // WorkManager
     implementation(libs.androidx.work.runtime.ktx)
 
+    implementation("androidx.startup:startup-runtime:1.1.1") // Add startup runtime explicitly
+
+
     // Hilt (Dependency Injection)
     implementation(libs.google.hilt.android)
     ksp(libs.google.hilt.compiler) // Use KSP for Hilt annotation processing
@@ -104,6 +124,10 @@ dependencies {
     ksp(libs.androidx.hilt.compiler) // Use KSP for Hilt extension annotation processing
     // Hilt Navigation Compose Integration
     implementation(libs.androidx.hilt.navigation.compose)
+
+    //Glide
+    implementation (libs.glide)
+    ksp (libs.glide.compiler)
 
     // Jetpack Compose
     implementation(platform(libs.androidx.compose.bom)) // Import BOM
@@ -135,3 +159,10 @@ dependencies {
     debugImplementation(libs.debug.compose.ui.tooling) // Compose UI tooling (Layout Inspector)
     debugImplementation(libs.debug.compose.ui.test.manifest) // Compose test manifest
 }
+
+// Allow references to generated code
+//kapt {
+//    correctErrorTypes = true
+//}
+
+

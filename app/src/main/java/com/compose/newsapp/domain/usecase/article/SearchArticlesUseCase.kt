@@ -10,8 +10,10 @@ class SearchArticlesUseCase @Inject constructor(
     private val newsRepository: NewsRepository
 ) {
 
-    operator fun invoke(query: String,
-                        sortBy: String ): Flow<PagingData<Article>> {
+    operator fun invoke(
+        query: String,
+        sortBy: String
+    ): Flow<PagingData<Article>> {
         // Add validation or default values if needed
         return newsRepository.searchArticles(query, sortBy)
     }

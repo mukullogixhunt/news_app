@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.settings.SettingsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Theme Setting -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_theme"
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio_button_system"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/system_default" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio_button_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/light" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/radio_button_dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dark" />
+        </RadioGroup>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Sync Interval Setting -->
+        <TextView
+            android:id="@+id/text_view_sync_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/background_sync_interval"
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+        <TextView
+            android:id="@+id/text_view_sync_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorSecondary"
+            tools:text="Every 6 hours"/>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider_sync_interval"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="1.0"
+            android:valueTo="24.0"
+            android:stepSize="1.0"
+            app:labelBehavior="gone"
+            android:contentDescription="@string/sync_interval_hours"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Add more settings as needed -->
+
+    </LinearLayout>
+</ScrollView>

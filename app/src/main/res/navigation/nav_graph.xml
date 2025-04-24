@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_headlines">
+
+
+    <fragment
+        android:id="@+id/navigation_headlines"
+        android:name="com.compose.newsapp.presentation.headlines.HeadlinesFragment"
+        android:label="@string/menu_headlines"
+        tools:layout="@layout/fragment_headlines" >
+        <!-- Action to navigate to detail -->
+        <action
+            android:id="@+id/action_headlines_to_detail"
+            app:destination="@id/navigation_article_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.compose.newsapp.presentation.search.SearchFragment"
+        android:label="@string/menu_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_to_detail"
+            app:destination="@id/navigation_article_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_bookmarks"
+        android:name="com.compose.newsapp.presentation.bookmarks.BookmarksFragment"
+        android:label="@string/menu_bookmarks"
+        tools:layout="@layout/fragment_bookmarks" >
+        <action
+            android:id="@+id/action_bookmarks_to_detail"
+            app:destination="@id/navigation_article_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.compose.newsapp.presentation.settings.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <!-- Article Detail Fragment -->
+    <fragment
+        android:id="@+id/navigation_article_detail"
+        android:name="com.compose.newsapp.presentation.detail.ArticleDetailFragment"
+        android:label="Article Detail"
+        tools:layout="@layout/fragment_article_detail">
+        <!-- Define argument for article URL -->
+        <argument
+            android:name="articleUrl"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
