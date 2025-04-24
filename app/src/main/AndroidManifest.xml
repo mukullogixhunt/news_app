@@ -31,22 +31,27 @@
 
 
         <!-- Declare Hilt Worker Factory -->
+<!--        <provider-->
+<!--            android:name="androidx.startup.InitializationProvider"-->
+<!--            android:authorities="${applicationId}.androidx-startup"-->
+<!--            android:exported="false"-->
+<!--            tools:node="merge">-->
+<!--            &lt;!&ndash; Remove default WorkManager Initializer &ndash;&gt;-->
+<!--            <meta-data-->
+<!--                android:name="androidx.work.impl.WorkManagerInitializer"-->
+<!--                android:value="androidx.startup"-->
+<!--                tools:node="remove" />-->
+<!--            &lt;!&ndash; Add Hilt Worker Initializer &ndash;&gt;-->
+<!--            <meta-data-->
+<!--                android:name="androidx.hilt.work.HiltWorkerFactoryInitializer"-->
+<!--                android:value="androidx.startup"-->
+<!--                tools:node="replace" />-->
+<!--        </provider>-->
+
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
-            android:exported="false"
-            tools:node="merge">
-            <!-- Remove default WorkManager Initializer -->
-            <meta-data
-                android:name="androidx.work.impl.WorkManagerInitializer"
-                android:value="androidx.startup"
-                tools:node="remove" />
-            <!-- Add Hilt Worker Initializer -->
-            <meta-data
-                android:name="androidx.hilt.work.HiltWorkerFactoryInitializer"
-                android:value="androidx.startup"
-                tools:node="replace" />
-        </provider>
+            tools:node="remove" />
 
     </application>
 

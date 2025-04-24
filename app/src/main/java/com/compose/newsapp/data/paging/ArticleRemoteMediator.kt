@@ -58,11 +58,16 @@ class ArticleRemoteMediator @Inject constructor(
                 prevKey
             }
             LoadType.APPEND -> {
-                // Get the last item's remote key and use its nextKey
-                val remoteKeys = getRemoteKeyForLastItem(state)
-                val nextKey = remoteKeys?.nextKey
-                    ?: return MediatorResult.Success(endOfPaginationReached = remoteKeys != null)
-                nextKey
+                val remoteKey = getRemoteKeyForLastItem(state)
+                if (remoteKey?.nextKey == null) {
+                    // If there's no remote key for the last item OR if the nextKey is null,
+                    // it signifies the end of pagination.
+                    Logger.d("RemoteMediator","APPEND: End of pagination reached (remoteKey=$remoteKey, nextKey=${remoteKey?.nextKey}).")
+                    return MediatorResult.Success(endOfPaginationReached = true)
+                }
+                // Otherwise, use the nextKey to load the next page.
+                Logger.d("RemoteMediator","APPEND: Requesting page: ${remoteKey.nextKey}")
+                remoteKey.nextKey // Return the page number to load
             }
         }
 
